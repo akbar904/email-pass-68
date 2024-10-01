@@ -34,7 +34,6 @@
         "package:flutter/material.dart",
         "package:flutter_bloc/flutter_bloc.dart",
         "screens/login_screen.dart",
-        "screens/home_screen.dart",
         "cubits/auth_cubit.dart"
       ]
     },
@@ -55,7 +54,7 @@
       "dependencies": [
         "package:flutter/material.dart",
         "package:flutter_bloc/flutter_bloc.dart",
-        "cubits/auth_cubit.dart"
+        "../cubits/auth_cubit.dart"
       ]
     },
     {
@@ -75,7 +74,7 @@
       "dependencies": [
         "package:flutter/material.dart",
         "package:flutter_bloc/flutter_bloc.dart",
-        "cubits/auth_cubit.dart"
+        "../cubits/auth_cubit.dart"
       ]
     },
     {
@@ -101,14 +100,29 @@
       ],
       "dependencies": [
         "package:flutter_bloc/flutter_bloc.dart",
-        "models/user.dart"
+        "../models/user.dart"
       ]
     },
     {
       "name": "lib/models/user.dart",
       "description": "Defines the User model, which represents a user in the system.",
-      "class_diagram": "@startuml\nclass User {\n}\n@enduml",
-      "methods": [],
+      "class_diagram": "@startuml\nclass User {\n  +String id\n  +String email\n  +User(User)\n  +Map<String, dynamic> toJson()\n  +User User.fromJson(Map<String, dynamic> json)\n}\n@enduml",
+      "methods": [
+        {
+          "name": "toJson",
+          "description": "Converts the User instance to a JSON map.",
+          "parameters": [],
+          "return_type": "Map<String, dynamic>"
+        },
+        {
+          "name": "fromJson",
+          "description": "Creates a User instance from a JSON map.",
+          "parameters": [
+            "Map<String, dynamic> json"
+          ],
+          "return_type": "User"
+        }
+      ],
       "dependencies": []
     }
   ],
